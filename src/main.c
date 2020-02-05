@@ -10,10 +10,12 @@
 
 void main(void)
 {
+    GPIO_Init(LED_PORT, LED_PIN, GPIO_MODE_OUT_OD_HIZ_SLOW);
 
     while (1)
     {
-
+        GPIO_WriteReverse(LED_PORT, LED_PIN);
+        for (volatile uint32_t i = 0; i < 100000; i++);
     }
 }
 
