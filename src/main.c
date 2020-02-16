@@ -1,6 +1,7 @@
 /* Includes ------------------------------------------------------------------*/
 #include "stm8s.h"
 #include "main.h"
+#include "stm8s_gpio.h"
 
 /* Private defines -----------------------------------------------------------*/
 
@@ -10,10 +11,13 @@
 
 void main(void)
 {
+    volatile uint32_t i, j;
+    GPIO_Init(LED_PORT, LED_PIN, GPIO_MODE_OUT_OD_LOW_SLOW);
 
     while (1)
     {
-
+      GPIO_WriteReverse(LED_PORT, LED_PIN);
+      for(i = 0; i < 20; i++);
     }
 }
 
